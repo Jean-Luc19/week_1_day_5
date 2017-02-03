@@ -10,8 +10,7 @@ var listItemEnd = '<div class="shopping-item-controls">' +
 
 var state = {
 
-    tasks: [
-    ],
+    tasks: [{taskText: "Ostracize my friends.", completed: true},{taskText: "Learn to code.", completed: false},{taskText: "????", completed: false}, {taskText: "Profit", completed: false}],
 
     addTask: function(taskToAdd){
         this.tasks.push({taskText: taskToAdd, completed: false});

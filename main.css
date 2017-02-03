@@ -14,11 +14,25 @@ button:hover {
   cursor: pointer;
 }
 
+h1 {
+    text-align: center;
+    color: #ff00ae;
+}
+
+h3 {
+    text-align: right;
+    padding-right: 42px;
+    margin-top: -25px;
+}
+header{
+    padding-bottom: 20px;
+}
+
 #shopping-list-item {
   width: 250px;
 }
 
-.container {
+header, .container {
   max-width: 600px;
   margin: 0 auto;
 }
