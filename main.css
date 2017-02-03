@@ -65,3 +65,13 @@ ul li:nth-child(odd) {
 .shopping-item__checked {
   text-decoration: line-through;
 }
+
+footer {
+  position: fixed;
+  bottom: 2%;
+  left: 20%;
+}
+
+footer button {
+  margin: 0 20px;
+}
