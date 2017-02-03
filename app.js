@@ -89,7 +89,7 @@ function initializeEventHandelers() {
 // delete all completed tasks
 // delete all tasks
 // check all tasks
-// 
+// small change
 
 $(function() {
     state.renderList(state);
