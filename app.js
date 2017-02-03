@@ -64,7 +64,8 @@ var state = {
     deleteAllCompletedTasks: function() {
       state.tasks.forEach(function(task, index) {
         if (task.completed) {
-          state.tasks.splice(index, 1);
+          delete state.tasks[index];
+          // state.tasks.splice(index, 1);
         }
       });
     },
