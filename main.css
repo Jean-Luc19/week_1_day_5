@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f7f6e8;
 }
 
 button,
@@ -24,6 +25,11 @@ h3 {
     text-align: right;
     padding-right: 42px;
     margin-top: -25px;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
 }
 
 #shopping-list-item {
