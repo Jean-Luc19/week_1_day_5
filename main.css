@@ -33,6 +33,16 @@ button:hover {
   float: right;
 }
 
+ul li:nth-child(even) {
+    background-color: lightblue;
+    color: white;
+}
+
+ul li:nth-child(odd) {
+    background-color: white;
+    color: black;
+}
+
 .shopping-list {
   list-style: none;
   padding-left: 0;

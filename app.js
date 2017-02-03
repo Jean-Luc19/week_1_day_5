@@ -58,6 +58,7 @@ var state = {
         tasksHTML.forEach(function(currentTask){
             shoppingList.append(`<li>${currentTask}${listItemEnd}`);
         });
+        state.renderTaskCount();
     },
 
     deleteAllCompletedTasks: function() {
@@ -80,9 +81,13 @@ var state = {
       state.tasks.length = 0;
     },
 
+    renderTaskCount: function() {
+      $('.container h3 span').text(state.taskCount());
+    },
+
     taskCount: function() {
       return state.tasks.length
-    }
+    },
 }
 
 function initializeEventHandelers() {
@@ -124,11 +129,6 @@ function initializeEventHandelers() {
 
   });
 }
-
-// delete all completed tasks   Done
-// delete all tasks:            Done
-// check all tasks              Done
-// small change
 
 $(function() {
     state.renderList(state);
