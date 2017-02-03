@@ -18,17 +18,24 @@ var state = {
         this.renderList(state);
     },
 
-    removeTask: function (task) {
-
+    checkTask: function (string) {
+      this.tasks.forEach(function(currentTask) {
+        if (string === currentTask.taskText) {
+          if (currentTask.completed) {
+            currentTask.completed = false;
+          } else {
+            currentTask.completed = true;
+          }
+        }
+      });
     },
 
-    renderList: function (state) {
-        var tasksHTML = this.buildList(state.tasks);
-        var shoppingList = $('.shopping-list');
-        shoppingList.empty();
-        tasksHTML.forEach(function(currentTask){
-            shoppingList.append(`<li>${currentTask}${listItemEnd}`);
-        });
+    deleteTask: function (string) {
+      this.tasks.forEach(function(currentTask, index) {
+        if (string === currentTask.taskText) {
+          state.tasks.splice(index, 1);
+        }
+      });
     },
 
     buildList: function (tasks) {
@@ -42,21 +49,49 @@ var state = {
             }
         });
         return builtTasks;
+    },
+
+    renderList: function (state) {
+        var tasksHTML = this.buildList(state.tasks);
+        var shoppingList = $('.shopping-list');
+        shoppingList.empty();
+        tasksHTML.forEach(function(currentTask){
+            shoppingList.append(`<li>${currentTask}${listItemEnd}`);
+        });
+    },
+
+    deleteAllCompletedTasks: function() {
+
     }
 }
 
+function initializeEventHandelers() {
+  $('#js-shopping-list-form').on('click', 'button', function (e) {
+      e.preventDefault();
+      var userInput = $('#shopping-list-entry').val();
+      state.addTask(userInput);
+      $('#shopping-list-entry').val("");
+  });
 
-$('#js-shopping-list-form').on('click', 'button', function (e) {
-    e.preventDefault();
-    var userInput = $('#shopping-list-entry').val();
-    state.addTask(userInput);
-    $('#shopping-list-entry').val("");
-});
+  $('ul').on('click', '.shopping-item-toggle', function (e) {
+      state.checkTask($(this).parent().prev().text());
+      state.renderList(state);
 
-$('ul').on('click', '.shopping-item-toggle', function (e) {
-    console.log($(this).parent().prev().text());
-});
+  });
+
+  $('ul').on('click', '.shopping-item-delete', function (e) {
+      state.deleteTask($(this).parent().prev().text());
+      state.renderList(state);
+
+  });
+}
+
+// delete all completed tasks
+// delete all tasks
+// check all tasks
+// 
 
 $(function() {
     state.renderList(state);
+    initializeEventHandelers();
 });
