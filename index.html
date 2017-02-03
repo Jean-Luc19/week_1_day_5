@@ -12,18 +12,23 @@
 
   <div class="container">
     <h1>Shopping List</h1>
+    <h3><span>0</span> Items</h3>
 
     <form id="js-shopping-list-form">
       <label for="shopping-list-entry">Add an item</label>
       <input type="text" name="shopping-list-entry" id="shopping-list-entry" placeholder="e.g., broccoli">
       <button type="submit">Add item</button>
+      <button class="delete-all-items">Delete All</button>
     </form>
 
     <ul class="shopping-list">
 
     </ul>
   </div>
-
+  <footer class="container">
+    <button class="delete-completed-items">Delete All Finished Items</button>
+    <button class="check-all-items">Check All Items</button>
+  </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script type="text/javascript" src="app.js"></script>

@@ -23,6 +23,16 @@ button:hover {
   margin: 0 auto;
 }
 
+.container h3,
+.container h1 {
+  display: inline-block;
+}
+
+.container h3 {
+  margin-top: 30px;
+  float: right;
+}
+
 .shopping-list {
   list-style: none;
   padding-left: 0;

@@ -61,16 +61,55 @@ var state = {
     },
 
     deleteAllCompletedTasks: function() {
+      state.tasks.forEach(function(task, index) {
+        if (task.completed) {
+          state.tasks.splice(index, 1);
+        }
+      });
+    },
 
+    checkAllTasks: function() {
+      state.tasks.forEach(function(task) {
+        if (!task.completed) {
+          task.completed = true;
+        }
+      });
+    },
+
+    deleteAllTasks: function() {
+      state.tasks.length = 0;
+    },
+
+    taskCount: function() {
+      return state.tasks.length
     }
 }
 
 function initializeEventHandelers() {
-  $('#js-shopping-list-form').on('click', 'button', function (e) {
+  
+  $('#js-shopping-list-form').on('click', 'button[type="submit"]', function (e) {
       e.preventDefault();
       var userInput = $('#shopping-list-entry').val();
       state.addTask(userInput);
       $('#shopping-list-entry').val("");
+  });
+
+  $('#js-shopping-list-form').on('click', '.delete-all-items', function (e) {
+      e.preventDefault();
+      state.deleteAllTasks();
+      state.renderList(state);
+  });
+
+  $('footer').on('click', '.delete-completed-items', function (e) {
+      e.preventDefault();
+      state.deleteAllCompletedTasks();
+      state.renderList(state);
+  });
+
+  $('footer').on('click', '.check-all-items', function (e) {
+      e.preventDefault();
+      state.checkAllTasks();
+      state.renderList(state);
   });
 
   $('ul').on('click', '.shopping-item-toggle', function (e) {
@@ -86,9 +125,9 @@ function initializeEventHandelers() {
   });
 }
 
-// delete all completed tasks
-// delete all tasks
-// check all tasks
+// delete all completed tasks   Done
+// delete all tasks:            Done
+// check all tasks              Done
 // small change
 
 $(function() {
