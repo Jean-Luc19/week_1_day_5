@@ -7,9 +7,12 @@ body {
     background-color: #f7f6e8;
 }
 
-button,
 input[type="text"] {
     padding: 5px;
+}
+
+button {
+    padding: 1px;
 }
 
 button:hover {
@@ -28,8 +31,16 @@ h3 {
 }
 
 form {
+    padding-top: 5px;
+    padding-bottom: 10px;
     margin: 0 auto;
-    width: 400px;
+    width: 500px;
+}
+
+.shopping-item-controls{
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 #shopping-list-item {
@@ -48,6 +59,7 @@ header,
 }
 
 .shopping-list>li {
+    position: relative;
     text-align: center;
     margin-bottom: 20px;
     border: 1px solid grey;

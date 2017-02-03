@@ -1,9 +1,9 @@
 var listItemEnd = '<div class="shopping-item-controls">' +
     '<button class="shopping-item-toggle">' +
-    '<span class="button-label">check</span>' +
+    '<span class="button-label">&#10004;</span>' +
     '</button>' +
     '<button class="shopping-item-delete">' +
-    '<span class="button-label">delete</span>' +
+    '<span class="button-label">&#10008;</span>' +
     '</button>' +
     '</div>' +
     '</li>';
